@@ -40,3 +40,8 @@ class CommentViewSet(viewsets.ModelViewSet):
         else:
             permissions = []
         return permissions
+
+
+@api_view(['GET'])
+def sample_view(request):
+    return Response({'status': 'OK!'})

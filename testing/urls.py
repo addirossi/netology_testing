@@ -17,14 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import SimpleRouter
 
-from product.views import ProductViewSet, CommentViewSet
+from product.views import ProductViewSet, CommentViewSet, sample_view
 
 router = SimpleRouter()
-router.register('products', ProductViewSet)
-router.register('comments', CommentViewSet)
+router.register('products', ProductViewSet, 'products')
+router.register('comments', CommentViewSet, 'comments')
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
+    path('api/v1/test/', sample_view, name='sample')
 ]
