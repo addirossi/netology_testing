@@ -3,5 +3,5 @@ djangorestframework
 psycopg2-binary
 pytest
 pytest-django
-model-bakery
+model_bakery
 pytest-cov

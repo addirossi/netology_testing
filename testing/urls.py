@@ -16,13 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from product.views import sample_view, CreateProductView, ProductListView
+from product.views import (simple_view, CreateProductView, ProductsListView,
+                           DeleteProductView, CreateCommentView)
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/v1/sample/', sample_view, name='sample'),
-    path('api/v1/products/create/', CreateProductView.as_view(),
-         name='create-product'),
-    path('api/v1/products', ProductListView.as_view(), name='products-list'),
+    path('api/v1/test/', simple_view, name='test'),
+    path('api/v1/products/create/', CreateProductView.as_view(), name='create-product'),
+    path('api/v1/comments/create/', CreateCommentView.as_view(), name='create-comment'),
+    path('api/v1/products/', ProductsListView.as_view(), name='products-list'),
+    path('api/v1/products/delete/<int:pk>/', DeleteProductView.as_view(), name='delete-product')
 ]
